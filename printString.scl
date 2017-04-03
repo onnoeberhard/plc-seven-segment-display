@@ -1,0 +1,29 @@
+﻿FUNCTION "printString" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+VAR_INPUT 
+  input : String;
+END_VAR
+
+VAR_TEMP 
+  len : Int;
+END_VAR
+
+BEGIN
+
+#len := LEN(IN := #input);
+IF "i" > #len + 1 OR "i" < 1 THEN
+	"i" := 1;
+	"timing" := TRUE;
+ELSIF "clock" AND "timing" THEN
+	"c":= #input["i"];
+	"i" := "i" + 1;
+	"timing" := FALSE;
+ELSIF NOT "clock" THEN
+	"timing" := TRUE;
+END_IF;
+"printChar"(input := "c");
+	
+END_FUNCTION
+

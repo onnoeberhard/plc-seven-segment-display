@@ -1,0 +1,17 @@
+﻿ORGANIZATION_BLOCK "Main"
+TITLE = "Main Program Sweep (Cycle)"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+
+IF "p1" THEN
+	"printChar"(input := "BCDToChar"(v1 := "i1", v2 := "i2", v3 := "i3", v4 := "i4", v5 := "i5", v6 := "i6", v7 := "i7", v8 := "i8"));
+ELSIF "p2" THEN
+	"printString"(input := 'Hello World.');
+ELSE
+	"printChar"(input := ' ');
+END_IF;
+
+END_ORGANIZATION_BLOCK
+

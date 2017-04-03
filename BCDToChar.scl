@@ -1,0 +1,33 @@
+﻿FUNCTION "BCDToChar" : Char
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+VAR_INPUT 
+  v1 : Bool;
+  v2 : Bool;
+  v3 : Bool;
+  v4 : Bool;
+  v5 : Bool;
+  v6 : Bool;
+  v7 : Bool;
+  v8 : Bool;
+END_VAR
+
+VAR_TEMP 
+  b1 : Byte;
+END_VAR
+
+BEGIN
+
+#b1.%X0 := #v1;
+#b1.%X1 := #v2;
+#b1.%X2 := #v3;
+#b1.%X3 := #v4;
+#b1.%X4 := #v5;
+#b1.%X5 := #v6;
+#b1.%X6 := #v7;
+#b1.%X7 := #v8;
+#BCDToChar := BYTE_TO_CHAR(IN := #b1);
+	
+END_FUNCTION
+
